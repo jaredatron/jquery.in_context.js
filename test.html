@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="jquery.in_context.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      console.log('context', $('a').context );
+      console.log('number of a tags', $('a').length );
+
+      $('#header').inContext(function($){
+        console.log('context', $('a').context );
+        console.log('number of a tags', $('a').length );
+        
+        $('.logo_wrapper').inContext(function($){
+          console.log('context', $('a').context );
+          console.log('number of a tags', $('a').length );
+        });
+        
+      });
+      
+      console.log('context', $('a').context );
+      console.log('number of a tags', $('a').length );
+    });
+  </script>
+</head>
+<body>
+  <div id="header">
+    <a href="/login">login</a>
+    <div class="logo_wrapper">
+      <a href="/"><img/></a>
+    </div>
+  </div>
+  <a href="google.com">google.com</a>
+</body>
+</html>

@@ -1,0 +1,7 @@
+$('#header').inContext(function($){
+  $('.logo_wrapper');
+});
+
+is equal to
+
+$('.logo_wrapper', $('#header')[0]);
